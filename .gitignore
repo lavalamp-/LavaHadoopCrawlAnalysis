@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+.Trashes
+.Spotlight-V100
+.DS_Store?
+build/
+dist/
+test_results/

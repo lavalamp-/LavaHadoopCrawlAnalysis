@@ -1,0 +1,12 @@
+Listing common crawl stuff on AWS:
+
+- aws s3 ls s3://aws-publicdatasets/common-crawl/
+
+To run the Hadoop job on Ubuntu VM:
+
+- hadoop jar <hadoop jar file>
+
+Items required for getting Hadoop running on VM:
+
+- export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
+- export HADOOP_PREFIX=/opt/hadoop-1.0.3

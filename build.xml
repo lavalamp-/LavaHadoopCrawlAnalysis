@@ -1,0 +1,55 @@
+<project name="LavaHadoopCrawlAnalysis" default="dist" basedir=".">
+
+  <description>
+    Build file for Hadoop application designed to analyze Common Crawl data on Amazon EMR.
+  </description>
+
+  <property name="lib"   location="lib"  />
+  <property name="src"   location="src"  />
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist" />
+
+  <target name="init">
+    <tstamp/>
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+          description="compile the source" >
+    <echo message=""/>
+    <echo message="Building LavaHadoopCrawlAnalysis"/>
+    <echo message=""/>
+    <javac srcdir="${src}" destdir="${build}" debug="on" debuglevel="lines,vars,source" target="1.6">
+      <compilerarg value="-Xlint"/>
+      <classpath>
+        <pathelement path="${classpath}"/>
+        <fileset dir="lib">
+          <include name="hadoop-core-1.0.3.jar" />
+          <include name="webarchive-commons-jar-with-dependencies.jar" />
+        </fileset>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="dist" depends="compile"
+          description="generate the distribution" >
+    <mkdir dir="${dist}/lib"/>
+    <mkdir dir="${build}/lib"/>
+    <jar jarfile="${dist}/lib/LavaHadoop.jar" basedir="${build}">
+      <manifest>
+        <attribute name="Main-Class" value="com.lavalamp.discowatprocessing.HadoopRunner" />
+      </manifest>
+      <zipfileset dir="lib" prefix="lib" >
+        <include name="webarchive-commons-jar-with-dependencies.jar" />
+      </zipfileset>
+    </jar>
+  </target>
+
+  <target name="clean"
+          description="clean up" >
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${build}-test"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>

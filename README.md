@@ -12,4 +12,6 @@ To use this code, do the following:
 
 You should *definitely* only run this on [Amazon Elastic MapReduce](https://aws.amazon.com/emr/) unless you want it to take forever and drain your bank account.
 
+To process the results of Hadoop jobs resulting from this code, check out the [lava-hadoop-processing](https://github.com/lavalamp-/lava-hadoop-processing) repository. If you're just interested in getting the content discovery hit lists resulting from this research, take a look at the [content-discovery-hit-lists](https://github.com/lavalamp-/content-discovery-hit-lists) repository.
+
 More details will be available via a blog post on [lavalamp's personal blog](https://l.avala.mp/) in the near future.

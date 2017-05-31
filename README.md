@@ -1,6 +1,15 @@
 LavaHadoopCrawlAnalysis
 =======================
 
-Code used for running Hadoop jobs on Amazon EC2 to analyze Common Crawl data set
+Code used for running Hadoop jobs on Amazon EC2 to analyze Common Crawl data set. Building this code requires [Apache Ant](http://ant.apache.org/).
 
-At some point in the future this might be filled out...
+To use this code, do the following:
+
+1. Clone the repository
+2. Update the file at `src/com/lavalamp/watprocessing/HadoopRunner.java` to reflect the Common Crawl data you want to process and the S3 bucket where you want to store the results (`fileInputPath` and `fileOutputPath` variables)
+3. Build the JAR file by running `ant compile jar` in the root project directory
+4. Use the JAR file located at `dist/lib/LavaHadoop.jar` with Hadoop to analyze Common Crawl data
+
+You should *definitely* only run this on [Amazon Elastic MapReduce](https://aws.amazon.com/emr/) unless you want it to take forever and drain your bank account.
+
+More details will be available via a blog post on [lavalamp's personal blog](https://l.avala.mp/) in the near future.

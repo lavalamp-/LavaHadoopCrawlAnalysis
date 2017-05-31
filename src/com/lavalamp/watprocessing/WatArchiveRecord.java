@@ -142,8 +142,6 @@ public class WatArchiveRecord {
 
 		String inputServerType = getServerType();
 
-		// I have no insight as to why the exception was being thrown, but inputServerType.toLowerCase()
-		// was throwing a NullPointerException. Adding this check fixed the issue.
 		if (inputServerType == null) {
 			return "null_server";
 		}

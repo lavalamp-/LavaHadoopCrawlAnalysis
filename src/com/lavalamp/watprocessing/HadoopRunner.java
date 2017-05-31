@@ -20,10 +20,7 @@ public class HadoopRunner extends Configured implements Tool {
 
 	public int run(String[] args) throws Exception {
 		
-		// String fileInputPath = "/home/ubuntu/hadoop/CC-MAIN-20140313024506-00098-ip-10-183-142-35.ec2.internal.warc.wat.gz";
-		// String fileInputPath = "/home/ubuntu/hadoop/CC-MAIN-20140313024506-00099-ip-10-183-142-35.ec2.internal.warc.wat.gz";
-		// String fileOutputPath = "/home/ubuntu/hadoop_output_9/";
-		String fileInputPath = "s3n://aws-publicdatasets/common-crawl/crawl-data/CC-MAIN-2014-49/segments/1416400372202.67/wat/*.warc.wat.gz";
+		String fileInputPath = "s3n://aws-publicdatasets/common-crawl/crawl-data/CC-MAIN-2014-49/segments/*/wat/*.warc.wat.gz";
 		String fileOutputPath = "s3n://lava-common-crawl/path_test_1/";
 		
 		JobConf conf = new JobConf(WatMap.class);
